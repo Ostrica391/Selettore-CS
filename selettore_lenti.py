@@ -70,21 +70,22 @@ st.markdown("""
     .cassette {
         background-color: #f8f9fa;
         border-radius: 20px;
-        padding: 25px;
+        padding: 50px;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        margin-top: 30px;
+        margin: 30px auto;
         border: 2px solid #ccc;
         overflow-x: auto;
+        max-width: 860px;
     }
     .lens {
         text-align: center;
         margin: 0 10px;
     }
     .lens img {
-        width: 100px;
+        width: 150px;
         height: auto;
         border-radius: 10px;
     }
@@ -134,6 +135,3 @@ st.markdown(f"""
         <img src='data:image/png;base64,{encoded_b}' style='width: 400px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
     </div>
 """, unsafe_allow_html=True)
-
-
-
