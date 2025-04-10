@@ -119,3 +119,6 @@ cassette_html += "</div>"
 
 # Mostriamo tutto
 st.markdown(cassette_html, unsafe_allow_html=True)
+
+st.image("totalsag.png", use_container_width=True)
+
