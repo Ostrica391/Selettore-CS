@@ -3,6 +3,15 @@ from PIL import Image, ImageOps
 import base64
 import io
 
+# Sfondo gradiente soft applicato al body della pagina
+st.markdown("""
+    <style>
+    body {
+        background: linear-gradient(to bottom, #e6f0ff, #f8f9fa);
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # Logo centrato
 st.markdown("""
     <div style='text-align: center;'>
