@@ -34,7 +34,7 @@ val3 = st.number_input("Central Clearance", value=250, step=5)
 
 # Calcolo
 risultato = (val1 + val2) / 2 + 1080 + val3
-st.markdown(f"### Risultato formula: {risultato:.2f}")
+st.markdown(f"### SAG Lente: {risultato:.2f}")
 
 # Determina quale immagine evidenziare
 indice = None
