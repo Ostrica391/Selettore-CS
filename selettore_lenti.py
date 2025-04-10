@@ -70,7 +70,7 @@ st.markdown("""
     .cassette {
         background-color: #f8f9fa;
         border-radius: 20px;
-        padding: 50px;
+        padding: 80px;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -85,7 +85,7 @@ st.markdown("""
         margin: 0 10px;
     }
     .lens img {
-        width: 450px;
+        width: 150px;
         height: auto;
         border-radius: 10px;
     }
