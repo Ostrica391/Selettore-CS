@@ -7,7 +7,7 @@ import io
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(to bottom, #ffffff, #ffffff);
+        background: linear-gradient(to bottom, #ffffff, #004890);
         background-attachment: fixed;
     }
     </style>
@@ -83,15 +83,19 @@ st.markdown("""
         text-align: center;
         margin: 0 10px;
     }
+    .frame {
+        border: 5px solid transparent;
+        padding: 5px;
+        border-radius: 12px;
+        display: inline-block;
+    }
+    .frame.selected {
+        border-color: red;
+    }
     .lens img {
         width: 100px;
         height: auto;
         border-radius: 10px;
-    }
-    .selected {
-        border: 5px solid red;
-        padding: 5px;
-        border-radius: 12px;
     }
     .arrow {
         font-size: 30px;
@@ -109,10 +113,19 @@ cassette_html = "<div class='cassette'>"
 
 for i in range(7):
     img = Image.open(paths[i])
-    img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' class='{'selected' if i == indice else ''}'>"
+    base64_img = pil_to_base64(img)
     arrow_html = "<div class='arrow'>⬇️</div>" if i == indice else ""
+    frame_class = "frame selected" if i == indice else "frame"
     label = f"{sag_labels[i]}{' (Lente ideale)' if i == indice else ''}"
-    lens_html = f"<div class='lens'>{arrow_html}{img_html}<div>{label}</div></div>"
+    lens_html = f"""
+        <div class='lens'>
+            {arrow_html}
+            <div class='{frame_class}'>
+                <img src='data:image/png;base64,{base64_img}'>
+            </div>
+            <div>{label}</div>
+        </div>
+    """
     cassette_html += lens_html
 
 cassette_html += "</div>"
