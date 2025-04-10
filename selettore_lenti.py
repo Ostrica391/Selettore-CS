@@ -35,51 +35,18 @@ paths = [
     "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"
 ]
 
-# CSS per la "cassetta"
-st.markdown("""
-    <style>
-    .lens-box {
-        background-color: #f0f2f6;
-        border-radius: 20px;
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        margin-top: 20px;
-        overflow-x: auto;
-    }
-    .lens-item {
-        text-align: center;
-        margin: 0 10px;
-    }
-    .lens-caption {
-        font-size: 14px;
-        margin-top: 5px;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# Titolo
-st.markdown("## Cassetta Lenti di Prova")
-
-# HTML container per tutte le immagini
-st.markdown('<div class="lens-box">', unsafe_allow_html=True)
+# Mostra le immagini
+st.markdown("---")
+st.subheader("Set di Lenti")
+cols = st.columns(7)
 
 for i in range(7):
+    col = cols[i % 7]  # Riempie le colonne a gruppi di 4
     img = Image.open(paths[i])
     if i == indice:
-        img = ImageOps.expand(img, border=10, fill='red')
-        arrow = "<div style='text-align:center;font-size:24px;'>⬇️</div>"
+        # Applica bordo rosso per evidenziare
+        img_highlight = ImageOps.expand(img, border=10, fill='red')
+        col.markdown("<div style='text-align: center; font-size: 32px;'>🔻</div>", unsafe_allow_html=True)
+        col.image(img_highlight, caption=f"Lente {i+1} (SELEZIONATA)", use_container_width=True)
     else:
-        arrow = ""
-
-    st.markdown(f"""
-        <div class='lens-item'>
-            {arrow}
-            <img src='data:image/png;base64,{st.image(img, output_format='png', use_container_width=True, clamp=True)._repr_png_().decode("latin1")}'>
-            <div class='lens-caption'>Lente {i+1} {'(SELEZIONATA)' if i == indice else ''}</div>
-        </div>
-    """, unsafe_allow_html=True)
-
-st.markdown('</div>', unsafe_allow_html=True)
+        col.image(img, caption=f"Lente {i+1}", use_container_width=True)
