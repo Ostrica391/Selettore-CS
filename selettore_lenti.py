@@ -24,9 +24,9 @@ st.markdown("""
 st.title("Selettore CS - TS LAC")
 
 # Input
-val1 = st.number_input("Inserisci SAG 5.00mm 0°", value=1500)
-val2 = st.number_input("Inserisci SAG 5.00mm 180°", value=1500)
-val3 = st.number_input("Central Clearance", value=250)
+val1 = st.number_input("Inserisci SAG 5.00mm 0°", value=1500, step=10)
+val2 = st.number_input("Inserisci SAG 5.00mm 180°", value=1500, step=10)
+val3 = st.number_input("Central Clearance", value=250, step=5)
 
 # Calcolo
 risultato = (val1 + val2) / 2 + 1080 + val3
