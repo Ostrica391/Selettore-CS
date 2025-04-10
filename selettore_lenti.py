@@ -38,15 +38,15 @@ paths = [
 # Mostra le immagini
 st.markdown("---")
 st.subheader("Set di Lenti")
-cols = st.columns(7)
+cols = st.columns(4)
 
 for i in range(7):
-    col = cols[i % 7]  # Riempie le colonne a gruppi di 4
+    col = cols[i % 4]  # Riempie le colonne a gruppi di 4
     img = Image.open(paths[i])
     if i == indice:
         # Applica bordo rosso per evidenziare
         img_highlight = ImageOps.expand(img, border=10, fill='red')
         col.markdown("<div style='text-align: center; font-size: 32px;'>🔻</div>", unsafe_allow_html=True)
-        col.image(img_highlight, caption=f"Lente {i+1} (SELEZIONATA)", use_column_width=True)
+        col.image(img_highlight, caption=f"Lente {i+1} (SELEZIONATA)", use_container_width=True)
     else:
-        col.image(img, caption=f"Lente {i+1}", use_column_width=True)
+        col.image(img, caption=f"Lente {i+1}", use_container_width=True)
