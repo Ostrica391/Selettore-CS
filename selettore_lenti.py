@@ -3,11 +3,11 @@ from PIL import Image, ImageOps
 import base64
 import io
 
-# Sfondo gradiente applicato direttamente al contenitore dell'app
+# Sfondo gradiente più marcato: bianco -> blu profondo
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(to bottom, #e6f0ff, #f8f9fa);
+        background: linear-gradient(to bottom, #ffffff, #004890);
         background-attachment: fixed;
     }
     </style>
