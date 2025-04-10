@@ -3,12 +3,16 @@ from PIL import Image, ImageOps
 import base64
 import io
 
-# Sfondo gradiente più marcato: bianco -> blu profondo
+# Sfondo gradiente più marcato: bianco -> blu profondo + larghezza massima container
 st.markdown("""
     <style>
     .stApp {
         background: linear-gradient(to bottom, #ffffff, #ffffff);
         background-attachment: fixed;
+    }
+    .block-container {
+        max-width: 100% !important;
+        padding: 2rem 3rem;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -79,7 +83,8 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         margin: 30px auto;
         border: 2px solid #ccc;
-        max-width: 2850px;
+        width: 100%;
+        max-width: 100%;
         overflow-x: auto;
     }
     .lens {
