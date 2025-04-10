@@ -125,7 +125,7 @@ with open("totalsag.png", "rb") as img_file:
 
 st.markdown(f"""
     <div style='margin-top: 30px;'>
-        <img src='data:image/png;base64,{encoded}' style='width: 500px; margin-left: 40px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
+        <img src='data:image/png;base64,{encoded}' style='width: 500px; margin-left: 0px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
     </div>
 """, unsafe_allow_html=True)
 
