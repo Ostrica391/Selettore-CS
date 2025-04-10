@@ -11,17 +11,8 @@ st.markdown("""
         background-attachment: fixed;
     }
     .block-container {
-        max-width: 100% !important;
+        max-width: 90% !important;
         padding: 2rem 3rem;
-    }
-    @media (max-width: 768px) {
-        .cassette {
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        .cassette img {
-            width: 100px !important;
-        }
     }
     </style>
 """, unsafe_allow_html=True)
@@ -37,8 +28,8 @@ st.markdown("""
 st.title("Selettore CS - TS LAC")
 
 # Input
-val1 = st.number_input("Inserisci SAG 5.00mm 0°", value=1500, step=10)
-val2 = st.number_input("Inserisci SAG 5.00mm 180°", value=1500, step=10)
+val1 = st.number_input("Inserisci SAG 5.00mm 0°", value=1700, step=10)
+val2 = st.number_input("Inserisci SAG 5.00mm 180°", value=1700, step=10)
 val3 = st.number_input("Central Clearance", value=250, step=5)
 
 # Calcolo
@@ -142,8 +133,8 @@ with open("totalsagb.png", "rb") as img_file_b:
 # Mostra affiancate le due immagini
 st.markdown(f"""
     <div style='margin-top: 30px; display: flex; justify-content: center; gap: 40px;'>
-        <img src='data:image/png;base64,{encoded_a}' style='width: 400px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
-        <img src='data:image/png;base64,{encoded_b}' style='width: 400px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
+        <img src='data:image/png;base64,{encoded_a}' style='width: 610px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
+        <img src='data:image/png;base64,{encoded_b}' style='width: 610px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
     </div>
 """, unsafe_allow_html=True)
 
@@ -154,6 +145,7 @@ with open("totalsagc.png", "rb") as img_file_c:
 # Mostra immagine finale centrata
 st.markdown(f"""
     <div style='margin-top: 40px; text-align: center;'>
-        <img src='data:image/png;base64,{encoded_c}' style='width: 500px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
+        <img src='data:image/png;base64,{encoded_c}' style='width: 700px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
     </div>
 """, unsafe_allow_html=True)
+
