@@ -20,7 +20,7 @@ st.markdown("""
 # Logo centrato
 st.markdown("""
     <div style='text-align: center;'>
-        <img src='data:image/png;base64,""" + base64.b64encode(open("TSLAC.png", "rb").read()).decode() + """' style='width: 200px; margin-bottom: 10px;'>
+        <img src='data:image/png;base64,""" + base64.b64encode(open("TSLAC.png", "rb").read()).decode() + """' style='width: 400px; margin-bottom: 10px;'>
     </div>
 """, unsafe_allow_html=True)
 
