@@ -70,20 +70,21 @@ st.markdown("""
     .cassette {
         background-color: #f8f9fa;
         border-radius: 20px;
-        padding: 50px;
+        padding: 30px;
         display: flex;
         justify-content: center;
-        gap: 30px;
-        flex-wrap: wrap;
+        gap: 25px;
+        flex-wrap: nowrap;
         align-items: flex-end;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         margin: 30px auto;
         border: 2px solid #ccc;
-        max-width: 1800px;
+        max-width: 1550px;
+        overflow-x: auto;
     }
     .lens {
         text-align: center;
-        margin: 0 10px;
+        margin: 0 5px;
     }
     .selected {
         border: 5px solid red;
@@ -106,7 +107,7 @@ cassette_html = "<div class='cassette'>"
 
 for i in range(7):
     img = Image.open(paths[i])
-    img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' style='width: 80px; border-radius: 10px;' class='{'selected' if i == indice else ''}'>"
+    img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' style='width: 190px; border-radius: 10px;' class='{'selected' if i == indice else ''}'>"
     arrow_html = "<div class='arrow'>⬇️</div>" if i == indice else ""
     label = f"{sag_labels[i]}{' (Lente ideale)' if i == indice else ''}"
     lens_html = f"<div class='lens'>{arrow_html}{img_html}<div>{label}</div></div>"
