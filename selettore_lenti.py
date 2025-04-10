@@ -21,12 +21,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Titolo
-st.title("Selettore Lenti a Contatto - TS LAC")
+st.title("Selettore CS - TS LAC")
 
 # Input
-val1 = st.number_input("Inserisci il primo valore", value=0)
-val2 = st.number_input("Inserisci il secondo valore", value=0)
-val3 = st.number_input("Inserisci il valore della terza cella (K6)", value=0)
+val1 = st.number_input("Inserisci SAG 5.00mm 0°", value=1500)
+val2 = st.number_input("Inserisci SAG 5.00mm 180°", value=1500)
+val3 = st.number_input("Central Clearance", value=250)
 
 # Calcolo
 risultato = (val1 + val2) / 2 + 1080 + val3
@@ -99,7 +99,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Titolo cassetta
-st.markdown("## Cassetta di Lenti di Prova")
+st.markdown("## Lenti di prova CS")
 
 # Costruiamo tutto l'HTML in un unico blocco
 cassette_html = "<div class='cassette'>"
@@ -108,7 +108,7 @@ for i in range(7):
     img = Image.open(paths[i])
     img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' class='{'selected' if i == indice else ''}'>"
     arrow_html = "<div class='arrow'>⬇️</div>" if i == indice else ""
-    lens_html = f"<div class='lens'>{arrow_html}{img_html}<div>Lente {i+1}{' (SELEZIONATA)' if i == indice else ''}</div></div>"
+    lens_html = f"<div class='lens'>{arrow_html}{img_html}<div>Lente {i+1}{' (Lente ideale)' if i == indice else ''}</div></div>"
     cassette_html += lens_html
 
 cassette_html += "</div>"
