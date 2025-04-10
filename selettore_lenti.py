@@ -120,5 +120,13 @@ cassette_html += "</div>"
 # Mostriamo tutto
 st.markdown(cassette_html, unsafe_allow_html=True)
 
-st.image("totalsag.png", use_container_width=True)
+with open("totalsag.png", "rb") as img_file:
+    encoded = base64.b64encode(img_file.read()).decode()
+
+st.markdown(f"""
+    <div style='text-align: center; margin-top: 30px;'>
+        <img src='data:image/png;base64,{encoded}' style='width: 400px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);'>
+    </div>
+""", unsafe_allow_html=True)
+
 
