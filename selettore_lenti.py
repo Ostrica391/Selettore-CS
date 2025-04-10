@@ -7,7 +7,7 @@ import io
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(to bottom, #ffffff, #B0E2FF);
+        background: linear-gradient(to bottom, #ffffff, #c5ddff);
         background-attachment: fixed;
     }
     </style>
