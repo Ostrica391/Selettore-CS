@@ -79,7 +79,7 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         margin: 30px auto;
         border: 2px solid #ccc;
-        max-width: 1850px;
+        max-width: 2850px;
         overflow-x: auto;
     }
     .lens {
