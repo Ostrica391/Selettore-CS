@@ -7,7 +7,7 @@ import io
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(to bottom, #ffffff, #fffff);
+        background: linear-gradient(to bottom, #ffffff, #004890);
         background-attachment: fixed;
     }
     </style>
@@ -53,6 +53,9 @@ elif 3651 <= risultato <= 3900:
 paths = [
     "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"
 ]
+
+# Etichette personalizzate sotto ogni lente
+sag_labels = ["SAG 3000", "SAG 3150", "SAG 3250", "SAG 3350", "SAG 3450", "SAG 3600", "SAG 3850"]
 
 # Funzione per convertire immagine in base64
 def pil_to_base64(img):
@@ -108,7 +111,8 @@ for i in range(7):
     img = Image.open(paths[i])
     img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' class='{'selected' if i == indice else ''}'>"
     arrow_html = "<div class='arrow'>⬇️</div>" if i == indice else ""
-    lens_html = f"<div class='lens'>{arrow_html}{img_html}<div>Lente {i+1}{' (Lente ideale)' if i == indice else ''}</div></div>"
+    label = f"{sag_labels[i]}{' (Lente ideale)' if i == indice else ''}"
+    lens_html = f"<div class='lens'>{arrow_html}{img_html}<div>{label}</div></div>"
     cassette_html += lens_html
 
 cassette_html += "</div>"
