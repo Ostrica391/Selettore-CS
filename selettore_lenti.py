@@ -11,7 +11,7 @@ st.markdown("""
         background-attachment: fixed;
     }
     .block-container {
-        max-width: 100% !important;
+        max-width: 90% !important;
         padding: 2rem 3rem;
     }
     </style>
