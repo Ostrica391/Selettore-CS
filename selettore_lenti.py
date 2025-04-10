@@ -3,11 +3,12 @@ from PIL import Image, ImageOps
 import base64
 import io
 
-# Sfondo gradiente soft applicato al body della pagina
+# Sfondo gradiente reale su .main (contenitore app)
 st.markdown("""
     <style>
-    body {
+    html, body, .main {
         background: linear-gradient(to bottom, #e6f0ff, #f8f9fa);
+        background-attachment: fixed;
     }
     </style>
 """, unsafe_allow_html=True)
