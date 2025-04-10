@@ -38,10 +38,10 @@ paths = [
 # Mostra le immagini
 st.markdown("---")
 st.subheader("Set di Lenti")
-cols = st.columns(4)
+cols = st.columns(7)
 
 for i in range(7):
-    col = cols[i % 4]  # Riempie le colonne a gruppi di 4
+    col = cols[i % 7]  # Riempie le colonne a gruppi di 7
     img = Image.open(paths[i])
     if i == indice:
         # Applica bordo rosso per evidenziare
