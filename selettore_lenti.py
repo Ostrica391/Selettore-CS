@@ -1,5 +1,7 @@
 import streamlit as st
 from PIL import Image, ImageOps
+import base64
+import io
 
 # Titolo
 st.title("Selettore Lenti a Contatto - TS LAC")
@@ -35,18 +37,62 @@ paths = [
     "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"
 ]
 
-# Mostra le immagini
-st.markdown("---")
-st.subheader("Set di Lenti")
-cols = st.columns(7)
+# Funzione per convertire immagine in base64
+def pil_to_base64(img):
+    buffer = io.BytesIO()
+    img.save(buffer, format="PNG")
+    encoded = base64.b64encode(buffer.getvalue()).decode()
+    return encoded
+
+# CSS per la "cassetta"
+st.markdown("""
+    <style>
+    .cassette {
+        background-color: #f8f9fa;
+        border-radius: 20px;
+        padding: 25px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+        border: 2px solid #ccc;
+    }
+    .lens {
+        text-align: center;
+    }
+    .lens img {
+        width: 100px;
+        height: auto;
+        border-radius: 10px;
+    }
+    .selected {
+        border: 5px solid red;
+        padding: 5px;
+        border-radius: 12px;
+    }
+    .arrow {
+        font-size: 30px;
+        margin-bottom: 5px;
+        color: red;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# Titolo cassetta
+st.markdown("## Cassetta di Lenti di Prova")
+
+# Inizio cassetta
+st.markdown('<div class="cassette">', unsafe_allow_html=True)
 
 for i in range(7):
-    col = cols[i % 7]  # Riempie le colonne a gruppi di 4
     img = Image.open(paths[i])
     if i == indice:
-        # Applica bordo rosso per evidenziare
-        img_highlight = ImageOps.expand(img, border=10, fill='red')
-        col.markdown("<div style='text-align: center; font-size: 32px;'>🔻</div>", unsafe_allow_html=True)
-        col.image(img_highlight, caption=f"Lente {i+1} (SELEZIONATA)", use_container_width=True)
+        img_html = f"<div class='lens'><div class='arrow'>⬇️</div><img class='selected' src='data:image/png;base64,{pil_to_base64(img)}'><div>Lente {i+1}</div></div>"
     else:
-        col.image(img, caption=f"Lente {i+1}", use_container_width=True)
+        img_html = f"<div class='lens'><img src='data:image/png;base64,{pil_to_base64(img)}'><div>Lente {i+1}</div></div>"
+
+    st.markdown(img_html, unsafe_allow_html=True)
+
+# Fine cassetta
+st.markdown('</div>', unsafe_allow_html=True)
