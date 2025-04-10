@@ -70,7 +70,7 @@ st.markdown("""
     .cassette {
         background-color: #f8f9fa;
         border-radius: 20px;
-        padding: 80px;
+        padding: 40px;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
