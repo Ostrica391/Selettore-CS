@@ -111,7 +111,8 @@ cassette_html = "<div class='cassette'>"
 for i in range(7):
     img = Image.open(paths[i])
     class_name = "lens-img selected" if i == indice else "lens-img"
-    img_html = f\"<img src='data:image/png;base64,{pil_to_base64(img)}' style='width: 180px; border-radius: 10px;' class='{'selected' if i == indice else ''}'>\"
+    img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' style='width: 180px; border-radius: 10px;' class='{'selected' if i == indice else ''}'>"
+
 
     arrow_html = "<div class='arrow'>⬇️</div>" if i == indice else ""
     label = f"{sag_labels[i]}{' (Lente ideale)' if i == indice else ''}"
