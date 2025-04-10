@@ -44,7 +44,7 @@ def pil_to_base64(img):
     encoded = base64.b64encode(buffer.getvalue()).decode()
     return encoded
 
-# CSS per la "cassetta"
+# CSS + HTML layout
 st.markdown("""
     <style>
     .cassette {
@@ -52,14 +52,16 @@ st.markdown("""
         border-radius: 20px;
         padding: 25px;
         display: flex;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: space-between;
+        align-items: flex-end;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         margin-top: 30px;
         border: 2px solid #ccc;
+        overflow-x: auto;
     }
     .lens {
         text-align: center;
+        margin: 0 10px;
     }
     .lens img {
         width: 100px;
@@ -82,17 +84,17 @@ st.markdown("""
 # Titolo cassetta
 st.markdown("## Cassetta di Lenti di Prova")
 
-# Inizio cassetta
-st.markdown('<div class="cassette">', unsafe_allow_html=True)
+# Costruiamo tutto l'HTML in un unico blocco
+cassette_html = "<div class='cassette'>"
 
 for i in range(7):
     img = Image.open(paths[i])
-    if i == indice:
-        img_html = f"<div class='lens'><div class='arrow'>⬇️</div><img class='selected' src='data:image/png;base64,{pil_to_base64(img)}'><div>Lente {i+1}</div></div>"
-    else:
-        img_html = f"<div class='lens'><img src='data:image/png;base64,{pil_to_base64(img)}'><div>Lente {i+1}</div></div>"
+    img_html = f"<img src='data:image/png;base64,{pil_to_base64(img)}' class='{'selected' if i == indice else ''}'>"
+    arrow_html = "<div class='arrow'>⬇️</div>" if i == indice else ""
+    lens_html = f"<div class='lens'>{arrow_html}{img_html}<div>Lente {i+1}{' (SELEZIONATA)' if i == indice else ''}</div></div>"
+    cassette_html += lens_html
 
-    st.markdown(img_html, unsafe_allow_html=True)
+cassette_html += "</div>"
 
-# Fine cassetta
-st.markdown('</div>', unsafe_allow_html=True)
+# Mostriamo tutto
+st.markdown(cassette_html, unsafe_allow_html=True)
