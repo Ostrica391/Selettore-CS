@@ -85,7 +85,7 @@ st.markdown("""
         margin: 0 10px;
     }
     .lens img {
-        width: 180px;
+        width: 250px;
         height: auto;
         border-radius: 10px;
     }
