@@ -3,10 +3,10 @@ from PIL import Image, ImageOps
 import base64
 import io
 
-# Sfondo gradiente reale su .main (contenitore app)
+# Sfondo gradiente applicato direttamente al contenitore dell'app
 st.markdown("""
     <style>
-    html, body, .main {
+    .stApp {
         background: linear-gradient(to bottom, #e6f0ff, #f8f9fa);
         background-attachment: fixed;
     }
