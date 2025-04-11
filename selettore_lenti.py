@@ -25,7 +25,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Titolo
-st.title("Selettore CSS - TS LAC")
+st.title("Selettore CS - TS LAC")
 
 # Input
 val1 = st.number_input("Inserisci SAG 5.00mm 0°", value=1700, step=10)
