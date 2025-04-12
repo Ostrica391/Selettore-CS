@@ -17,13 +17,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Logo centrato
-st.markdown("""
-    <div style='text-align: center;'>
-        <img src='data:image/png;base64,""" + base64.b64encode(open("TSLAC.png", "rb").read()).decode() + """' style='width: 400px; margin-bottom: 10px;'>
-    </div>
-""", unsafe_allow_html=True)
-
 # Menu link in alto a sinistra
 st.markdown("""
     <style>
@@ -55,6 +48,13 @@ st.markdown("""
         <a href="https://selettore-scl-adv.streamlit.app/" target="_blank">Calcolatore SCL-ADV</a>
         <a href="https://link3.com" target="_blank">Pulsante 3</a>
         <a href="https://link4.com" target="_blank">Pulsante 4</a>
+    </div>
+""", unsafe_allow_html=True)
+
+# Logo centrato
+st.markdown("""
+    <div style='text-align: center;'>
+        <img src='data:image/png;base64,""" + base64.b64encode(open("TSLAC.png", "rb").read()).decode() + """' style='width: 400px; margin-bottom: 10px;'>
     </div>
 """, unsafe_allow_html=True)
 
