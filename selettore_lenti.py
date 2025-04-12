@@ -23,7 +23,7 @@ st.markdown("""
     .top-menu {
         position: absolute;
         top: 60px;
-        left: 100px;
+        left: 20px;
         z-index: 1;
     }
     .top-menu a {
