@@ -24,6 +24,40 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
+# Menu link in alto a sinistra
+st.markdown("""
+    <style>
+    .top-menu {
+        position: fixed;
+        top: 60px;
+        left: 20px;
+        z-index: 9999;
+    }
+    .top-menu a {
+        display: block;
+        background-color: #004890;
+        color: white;
+        padding: 8px 16px;
+        margin-bottom: 8px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 14px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: background 0.3s;
+    }
+    .top-menu a:hover {
+        background-color: #0060b0;
+    }
+    </style>
+    <div class="top-menu">
+        <a href="https://selettore-cs.streamlit.app/" target="_blank">Calcolatore CS</a>
+        <a href="https://selettore-scl-adv.streamlit.app/" target="_blank">Calcolatore SCL-ADV</a>
+        <a href="https://link3.com" target="_blank">Pulsante 3</a>
+        <a href="https://link4.com" target="_blank">Pulsante 4</a>
+    </div>
+""", unsafe_allow_html=True)
+
 # Titolo
 st.title("Selettore CS - TS LAC")
 
