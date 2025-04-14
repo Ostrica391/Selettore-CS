@@ -89,7 +89,7 @@ elif 3651 <= risultato <= 3900:
 
 # Percorsi immagini
 paths = [
-    "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png"
+    "cs1.png", "cs2.png", "cs3.png", "cs4.png", "cs5.png", "cs6.png", "cs7.png"
 ]
 
 # Etichette personalizzate sotto ogni lente
